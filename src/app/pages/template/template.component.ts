@@ -12,8 +12,11 @@ export class TemplateComponent implements OnInit {
   usuario = {
     nombre: 'hdgtrh',
     apellido: 'dddddd',
-    correo: 'gfds@hgf.co'
+    correo: 'gfds@hgf.co',
+    pais: ''
   }
+  
+  paises: any[] = [];
 
   constructor( private paisServise: PaisService) { }
 
@@ -21,7 +24,12 @@ export class TemplateComponent implements OnInit {
 
     this.paisServise.getPaises()
     .subscribe( paises => {
-      console.log(paises);
+      this.paises = paises;
+
+      this.paises.unshift({
+        nombre: '[Seleccione Pais]',
+        codigo: ''
+      })
     });
 
   }
