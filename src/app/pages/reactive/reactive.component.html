@@ -94,7 +94,9 @@
                 <input type="text" class="form-control" [formControlName]="i">
               </td>
               <td>
-                <button class="btn btn-danger">
+                <button class="btn btn-danger"
+                        (click)="borrarPasatiempo(i)"
+                >
                   Borrar
                 </button>
               </td>
@@ -103,7 +105,9 @@
         </table>
 
         <button class="btn btn-primary mt-3 mb-5 btn-block"
-        type="button">Agregar</button>
+                type="button"
+                (click)="agregarPasatiempo()"
+                >Agregar</button>
 
 
     </div>
