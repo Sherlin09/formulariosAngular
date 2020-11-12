@@ -10,7 +10,7 @@ export class ValidadoresService {
 
   noHerrera( control: FormControl ): {[s:string]: boolean} {
 
-if ( control.value.toLovwerCase() === 'herrera' ) {
+if ( control.value?.toLovwerCase() === 'herrera' ) {
     return {
       noHerrera: true
     }
