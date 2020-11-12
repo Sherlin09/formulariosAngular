@@ -17,6 +17,7 @@ export class ReactiveComponent implements OnInit {
 
     this.crearFormulario();
     this.cargarDataAlFormulario();
+    this.crearListeners();
 
    }
 
@@ -66,7 +67,7 @@ export class ReactiveComponent implements OnInit {
 
     this.forma = this.fb.group({
       nombre  : ['', [Validators.required, Validators.minLength(5)]  ],
-      apellido: ['', Validators.required, this.validadores.noHerrera],
+      apellido: ['' ,[Validators.required, this.validadores.noHerrera]],
       correo  : ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       usuario : ['', , this.validadores.existeUsuario],
       pass1   : ['', Validators.required],
@@ -79,6 +80,15 @@ export class ReactiveComponent implements OnInit {
     },{
       validators: this.validadores.passwordsIguales('pass1', 'pass2')
     });
+  }
+
+  crearListeners(){
+    // this.forma.valueChanges.subscribe(valor => {
+    //   console.log(valor);
+    // });
+
+    // this.forma.statusChanges.subscribe( status => console.log ({status}));
+    this.forma.get('nombre').valueChanges.subscribe(console.log);
   }
 
   cargarDataAlFormulario(){
